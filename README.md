@@ -19,6 +19,7 @@ It also ensures that the software is modular, easy to understand, debug, and ref
 
 ## O : Open closed Principle (OSP)
 
+
 ## L : Liskov substitution Principle (LSP)
 
 ## I : Interface Segregation Principle (ISP)
@@ -70,8 +71,9 @@ Send OTP
             //use JavaMailSenderAPI
         }
     }
-}
-`
+}`
+
+
 Have you imagined the scenario? Here the class has multiple reasons to change.
 
 For example look into getLoanInterestInfo() method , now bank service provide only info for Personal Loan ,
@@ -93,7 +95,8 @@ public void printPassbook() {
 //update transaction info in passbook
 }
 }`
-Similarly **Loan related** job
+
+Similarly, **Loan related** job
 
 `public class LoanService{
 public void getLoanInterestInfo(String loanType) {
@@ -109,7 +112,7 @@ if (loanType.equals("car")) {
 }
 }`
 
-similarly **OTP related Job**
+Similarly, **OTP related Job**
 
 `public class NotificationService{
 public void sendOTP(String medium) {
@@ -120,7 +123,7 @@ if (medium.equals("email")) {
 }
 }`
 
-Now Each class have single Responsibility to perform their task .which is exactly SRP says …
+Now Each class have single Responsibility to perform their task which is exactly SRP says.
 
 ## Open closed Principle (OSP)
 
@@ -154,7 +157,7 @@ public void sendOTP(String medium);
 public void sendTransactionNotification(String medium);
 }`
 
-**EmailNotification** implantation
+**EmailNotification implementation**
 
 `public class EmailNotification implements NotificationService{
 public void sendOTP(String medium){
@@ -174,7 +177,7 @@ public void sendTransactionNotification(String medium){
 }
 }`
 
-similarly you can add implementation for WhatsApp notification service
+Similarly, we add implementation for **WhatsApp notification service**
 
 `public class WhatsAppNotification implements NotificationService{
 public void sendOTP(String medium){
@@ -202,7 +205,7 @@ who supported all social media activity for user to entertain them like below
     public abstract  void groupVideoCall(String... users);
 }`
 
-Social media can have multiple implantation or can have multiple child like Facebook, WhatsApp ,instagram and Twitter etc.
+Social media can have multiple implementation or can have multiple child like Facebook, WhatsApp ,instagram and Twitter etc.
 now let’s assume Facebook want to use these features or functionality .
 
 `public class Facebook extends SocialMedia {
